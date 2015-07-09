@@ -89,6 +89,7 @@
     [self.bottomContainerBar addSubview:self.triggerButton];
     [self.bottomContainerBar addSubview:self.closeButton];
     [self.bottomContainerBar addSubview:self.photoLibraryButton];
+    [self.bottomContainerBar addSubview:self.proceedWithoutPhotoButton];
 
     [self createGesture];
 }
@@ -134,6 +135,27 @@
 
     return _photoLibraryButton;
 }
+
+
+- (UIButton *) proceedWithoutPhotoButton
+{
+    if ( !_proceedWithoutPhotoButton ) {
+        _proceedWithoutPhotoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_proceedWithoutPhotoButton setTitle:@"Skip" forState:UIControlStateNormal];
+        [_proceedWithoutPhotoButton setTitleColor:RGBColor(0xef7b71, 1) forState:UIControlStateNormal];
+        //        [_proceedWithoutPhotoButton setBackgroundColor:RGBColor(0xffffff, 1)];
+        //        [_proceedWithoutPhotoButton.layer setCornerRadius:4];
+        //        [_proceedWithoutPhotoButton.layer setBorderWidth:1];
+        //        [_proceedWithoutPhotoButton.layer setBorderColor:RGBColor(0xffffff, .3).CGColor];
+        [_proceedWithoutPhotoButton setFrame:(CGRect){ CGRectGetWidth(self.bounds) - 123, CGRectGetMidY(self.bottomContainerBar.bounds) - 22, 44, 44 }];
+        [_proceedWithoutPhotoButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
+        [_proceedWithoutPhotoButton addTarget:self action:@selector(proceedWithoutPhotoAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _proceedWithoutPhotoButton;
+}
+
+
 
 - (UIButton *) triggerButton
 {
@@ -312,6 +334,12 @@
 {
     if ( [_delegate respondsToSelector:@selector(openLibrary)] )
         [_delegate openLibrary];
+}
+
+- (void) proceedWithoutPhotoAction:(UIButton *)button
+{
+    if ( [_delegate respondsToSelector:@selector(proceedWithoutPhoto)] )
+        [_delegate proceedWithoutPhoto];
 }
 
 - (void) addGridToCameraAction:(UIButton *)button

@@ -66,6 +66,14 @@
  */
 - (void) openLibrary;
 
+
+/**
+ *  Tells the delegate when the camera must be closed (another may to close)
+ */
+- (void) proceedWithoutPhoto;
+
+
+
 /**
  *  Check if the camera has the Focus
  *
@@ -106,6 +114,14 @@
  *  Tells the delegate when the camera must be dismissed
  */
 - (void) dismissCamera:(id)cameraViewController;
+
+/**
+ *  Tells the delegate when the camera must be dismissed to skip (another way to close but whith action)
+ */
+- (void) skipCamera:(id)cameraViewController;
+
+
+
 @end
 
 /**

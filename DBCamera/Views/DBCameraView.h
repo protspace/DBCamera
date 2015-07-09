@@ -46,6 +46,11 @@
 @property (nonatomic, strong) UIButton *photoLibraryButton;
 
 /**
+ *  The button to dismiss (another way to close)
+ */
+@property (nonatomic, strong) UIButton *proceedWithoutPhotoButton;
+
+/**
  *  The button to shot with the camera
  */
 @property (nonatomic, strong) UIButton *triggerButton;

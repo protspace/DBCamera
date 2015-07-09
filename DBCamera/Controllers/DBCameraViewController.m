@@ -176,6 +176,16 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         [_delegate dismissCamera:self];
 }
 
+- (void) skipCamera
+{
+    if ( _delegate && [_delegate respondsToSelector:@selector(dismissCamera:)] )
+        [_delegate skipCamera:self];
+}
+
+
+
+
+
 - (DBCameraView *) cameraView
 {
     if ( !_cameraView ) {
@@ -373,6 +383,15 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         });
     }
 }
+
+
+- (void) proceedWithoutPhoto {
+    [self skipCamera];
+    
+    
+}
+
+
 
 #pragma mark - CameraViewDelegate
 
