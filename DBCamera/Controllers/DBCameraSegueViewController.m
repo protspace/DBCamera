@@ -132,6 +132,9 @@ static const CGSize kFilterCellSize = { 75, 90 };
     
     if ( _cropMode )
         [_cropButton setSelected:YES];
+    
+    if ( _forceCropMode )
+        [_cropButton setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
