@@ -266,7 +266,16 @@ static const CGSize kFilterCellSize = { 75, 90 };
             [actionsheetButton setBackgroundColor:[UIColor clearColor]];
             [actionsheetButton setTitle:DBCameraLocalizedStrings(@"cropmode.title") forState:UIControlStateNormal];
             [actionsheetButton addTarget:self action:@selector(openActionsheet:) forControlEvents:UIControlEventTouchUpInside];
-            [_bottomBar addSubview:actionsheetButton];
+           // [_bottomBar addSubview:actionsheetButton];
+            
+            UILabel *hintCropLabel = [[UILabel alloc] initWithFrame:_bottomBar.bounds];
+            hintCropLabel.textAlignment = NSTextAlignmentCenter;
+            [hintCropLabel setBackgroundColor:[UIColor clearColor]];
+            hintCropLabel.text = NSLocalizedString(@"Double tap to reset", nil);
+            hintCropLabel.textColor = [UIColor whiteColor];
+            [_bottomBar addSubview:hintCropLabel];
+
+            
         }
     }
     
