@@ -271,7 +271,7 @@ static const NSTimeInterval kAnimationIntervalTransform = 0.2;
     
     Rectangle r3 = [self applyTransform:t toRectangle:r2];
     
-    if( CGRectContainsRect( [self CGRectFromRectangle:r3], r1 ) )
+    //if( CGRectContainsRect( [self CGRectFromRectangle:r3], r1 ) )
         self.validTransform = transform;
 }
 
